@@ -25,8 +25,6 @@ body {
     border-radius: 18px;
 }
 
-
-
 .search-box {
     width: 100%;
     display: flex;
@@ -90,6 +88,7 @@ body {
     font-size: 50px;
     margin-top: 20px;
 }
+
 .city {
     font-size: 50px;
     letter-spacing: 4px;
@@ -127,9 +126,9 @@ body {
 }
 
 .error {
-    color: #ffc0cb;
-    margin-top: 10px;
-    margin-left: 32px;
+    font-size: 20px;
+    color: #f18294;
+    margin: 10px auto 10px 32px;
     display: none;
 }
 
@@ -156,9 +155,6 @@ body {
     }
     .details i {
         font-size: 40px;
-    }
-    .details {
-        justify-content: space-between;
     }
     .details p {
         font-size: 24px;
