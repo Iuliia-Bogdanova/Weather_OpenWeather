@@ -20,9 +20,9 @@ async function checkWeather(city) {
     console.log(data, "data");
 
     document.querySelector('.city').innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + " &#8451";
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + " °";
     document.querySelector(".description").innerHTML = data.weather[0].description;
-    document.querySelector(".feels_like").innerHTML = Math.round(data.main.feels_like) + " &#8451";
+    document.querySelector(".feels_like").innerHTML = Math.round(data.main.feels_like) + " °";
     document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
     document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
 

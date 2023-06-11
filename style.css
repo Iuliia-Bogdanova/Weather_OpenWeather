@@ -20,10 +20,12 @@ body {
     max-width: 500px;
     width: auto;
     height: auto;
-    padding: 15px;
+    padding: 20px;
     overflow: hidden;
     border-radius: 18px;
 }
+
+
 
 .search-box {
     width: 100%;
@@ -80,13 +82,13 @@ body {
 }
 
 .weather-image i {
-    font-size: 90px;
+    font-size: 120px;
     opacity: .7;
 }
 
 .temp {
     font-size: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .city {
     font-size: 50px;
@@ -98,7 +100,7 @@ body {
 .details {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 10px;
 }
 
@@ -107,16 +109,21 @@ body {
     opacity: .7;
     margin-bottom: 10px;
 }
+
 .description,
 .feels,
-.feels p,
 .details p {
     font-size: 28px;
     font-weight: 600;
     font-style: italic;
     text-transform: lowercase;
-    padding-top: 10px;
+    padding-top: 16px;
     color: #06283d;
+}
+
+.feels_like {
+    font-style: normal;
+    padding-top: 10px;
 }
 
 .error {
@@ -124,4 +131,36 @@ body {
     margin-top: 10px;
     margin-left: 32px;
     display: none;
+}
+
+@media (max-width: 426px) {
+    .container {
+        padding: 10px;
+    }
+    .search-box input {
+        font-size: 24px;
+        padding-left: 24px;
+    }
+    .search-box input::placeholder {
+        font-size: 16px;
+    }
+    .weather-image i {
+        font-size: 90px;
+    }
+    .temp {
+        margin-top: 10px;
+    }
+    .city {
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
+    .details i {
+        font-size: 40px;
+    }
+    .details {
+        justify-content: space-between;
+    }
+    .details p {
+        font-size: 24px;
+    }
 }
