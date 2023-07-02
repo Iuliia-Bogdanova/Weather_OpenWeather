@@ -10,34 +10,47 @@ const searchButton = document.querySelector(".search-box button");
 const weather = document.querySelector('.weather');
 const error = document.querySelector('.error');
 
+// Получение сохраненного города из localStorage
+const savedCity = localStorage.getItem('savedCity');
+
+// Если в localStorage есть сохраненный город, загрузить его прогноз погоды
+if (savedCity) {
+    checkWeather(savedCity);
+}
+
 async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     if (response.status == 404) {
-        error.style.display = 'block';
+        error.style.display = "block";
         weather.style.display = "none";
     }
     const data = await response.json();
     console.log(data, "data");
 
-    document.querySelector('.city').innerHTML = data.name;
+    document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + " °";
-    document.querySelector(".description").innerHTML = data.weather[0].description;
-    document.querySelector(".feels_like").innerHTML = Math.round(data.main.feels_like) + " °";
+    document.querySelector(".description").innerHTML =
+        data.weather[0].description;
+    document.querySelector(".feels_like").innerHTML =
+        Math.round(data.main.feels_like) + " °";
     document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
-    document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
     if (data.weather[0].main == "Clear") {
         weatherIcon.className = "fa-solid fa-sun";
-        } else if (data.weather[0].main == "Rain") {
+    } else if (data.weather[0].main == "Rain") {
         weatherIcon.className = "fa-solid fa-cloud-rain";
-        } else if (data.weather[0].main == "Mist") {
+    } else if (data.weather[0].main == "Mist") {
         weatherIcon.className = "fa-solid fa-cloud-mist";
-        } else if (data.weather[0].main == "Drizzle") {
+    } else if (data.weather[0].main == "Drizzle") {
         weatherIcon.className = "fa-solid fa-cloud-drizzle";
     }
 
-    weather.style.display = 'block';
+    weather.style.display = "block";
     error.style.display = "none";
+
+    // Сохранение текущего города в localStorage
+    localStorage.setItem("savedCity", city);
 }
 
 searchButton.addEventListener('click', () => {
@@ -51,4 +64,3 @@ searchInput.addEventListener("keydown", (e) => {
         searchInput.value = "";
     }
 });
-
